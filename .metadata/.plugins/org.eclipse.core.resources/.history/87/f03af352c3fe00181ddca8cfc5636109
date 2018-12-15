@@ -1,0 +1,52 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class MathTree {
+	public static void main(String[] args) throws IOException {
+		// Read inpostfix.txt
+		File file = new File("src/inpostfix.txt"); // for eclipse
+		// File file = new File("inpostfix.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+
+		String[] line = new String[3];
+		String[] result = new String[3];
+
+		for (int i = 0; i < 3; i++) {
+			line[i] = sc.nextLine();
+			System.out.println(line[i]);
+		}
+
+		Scanner scan = new Scanner(line[0]);
+		String rest = new String();
+		String fix = scan.next();
+		while (scan.hasNext())
+			rest += scan.next();
+
+		//Build Tree
+		if (fix.equals("p")) {
+			result[0] = toInfix(rest);
+		} else if (fix.equals("i")) {
+			result[0] = toPostfix(rest);
+		}
+		
+
+		// printout outfix.txt
+		FileWriter fileWriter = new FileWriter("outfix.txt");
+		fileWriter.write(" ");// result[0]
+		fileWriter.close();
+
+	}
+
+	public static String toInfix(String postfix) {
+		
+		return postfix;
+	}
+
+	public static String toPostfix(String infix) {
+		
+		return infix;
+	}
+}

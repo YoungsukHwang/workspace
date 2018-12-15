@@ -1,0 +1,6 @@
+public class Graph {
+	public Node[][] nodeMat;
+	public Edge[] edges;
+	
+
+}

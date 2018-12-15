@@ -1,0 +1,15 @@
+
+public class Edge {
+	public Node end;
+	public double weight;
+	public Node saveFrom;
+	
+	public Edge(Node start, Node end, double weight){
+		this.end = end;
+		this.weight = weight;
+	}
+	
+	public void showEdge(){
+		System.out.print(end.number+" weight: "+weight);
+	}
+}

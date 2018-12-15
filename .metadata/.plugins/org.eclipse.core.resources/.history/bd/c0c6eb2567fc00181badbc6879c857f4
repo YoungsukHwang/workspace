@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+public class Prime {
+	Node[][] mat;
+	
+	public Prime(Node[][] nodeMat){
+		this.mat = nodeMat;
+	}
+	
+	public void MST(){
+		Node start = mat[19+2][19+2];
+		
+		MinHeapPrime heap = new MinHeapPrime(4000);
+		Node[] chosenNodes= new Node[360];
+		ArrayList<Edge> chosenEdges= new ArrayList<>();
+		
+		chosenNodes[0] = start;
+		while(chosenEdges.size()<360){
+			Edge chosen = heap.delMin();
+			
+			heap.insert(k);
+		}
+		
+	}
+
+}

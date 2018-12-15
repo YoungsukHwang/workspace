@@ -1,0 +1,20 @@
+import java.util.LinkedList;
+
+public class Node {
+	private int x;
+	private double weight;
+	public LinkedList<Edge> links;
+	
+	
+	public Node(int x, double height){
+		this.x =x;
+		this.weight = height;
+		this.links = new LinkedList<>();
+	}
+	
+	public double getWeight(){
+		return weight;
+	}
+	
+
+}

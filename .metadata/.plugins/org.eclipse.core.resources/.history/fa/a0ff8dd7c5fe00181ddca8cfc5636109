@@ -1,0 +1,13 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class GraphAdjacency {
+	public static void main(String[] args) throws FileNotFoundException {
+		File file = new File("src/dir.txt"); // for eclipse
+		// File file = new File("dir.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+
+	}
+
+}

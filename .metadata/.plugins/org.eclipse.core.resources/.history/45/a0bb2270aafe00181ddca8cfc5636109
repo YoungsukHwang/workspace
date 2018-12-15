@@ -1,0 +1,22 @@
+
+public class Node {
+	public int key;
+	public Node left;
+	public Node right;
+	
+	public int data;
+	
+	public Node(int key){
+		this.key=key;
+	}
+	
+	public void setkey(int key){
+		this.key = key;
+	}
+	
+	public int getKey() {
+		// TODO Auto-generated method stub
+		return key;
+	}
+
+}

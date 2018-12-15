@@ -1,0 +1,16 @@
+
+public class Edge {
+	public Node end;
+	public double weight;
+	public boolean explored;
+	
+	public Edge(Node start, Node end, double weight){
+		this.end = end;
+		this.weight = weight;
+		this.explored=false;
+	}
+	
+	public void showEdge(){
+		System.out.print(end.number+" weight: "+weight+" Explored: "+explored+"\t");
+	}
+}

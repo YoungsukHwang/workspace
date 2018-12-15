@@ -1,0 +1,20 @@
+import java.util.LinkedList;
+
+public class Node {
+	private int x;
+	private int y;
+	private double height;
+	public LinkedList<Edge> outward;
+	
+	public Node(int x, int y, double height){
+		this.x =x;
+		this.y =y;
+		this.height = height;
+		this.outward = new LinkedList<>();
+	}
+	
+	public double getHeight(){
+		return height;
+	}
+
+}

@@ -1,0 +1,51 @@
+
+public class MathTree01 {
+	
+	public Node root;
+
+	public MathTree01(String inpostorder) {
+		// For given string of preorder expression, construct a binary tree.
+		root = new Node();
+		Expression Exp = new Expression(inpostorder);
+
+		root = root.MakeBinaryTree(Exp);
+	}
+
+	public MathTree01(Node n) {
+		root = n;
+	}
+
+	public String postorder() {
+		if (this.root.left == null && this.root.right == null)
+			return Character.toString(this.root.getData());
+
+		MathTree01 mtl = new MathTree01(this.root.left);
+		MathTree01 mtr = new MathTree01(this.root.right);
+
+		String str = new String();
+		str += mtl.postorder();
+		str += mtr.postorder();
+		str += this.root.getData();
+
+		return str;
+	}
+
+	public String inorder() {
+		// Watch out inserting parenthesis.
+		if (this.root.left == null && this.root.right == null)
+			return Character.toString(this.root.getData());
+
+		MathTree01 mtl = new MathTree01(this.root.left);
+		MathTree01 mtr = new MathTree01(this.root.right);
+
+		String str = new String();
+		str += "(";
+		str += mtl.inorder();
+		str += this.root.getData();
+		str += mtr.inorder();
+		str += ")";
+
+		return str;
+	}
+	
+}

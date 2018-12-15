@@ -1,0 +1,14 @@
+
+public class Node {
+	int x;
+	int y;
+	double height;
+	
+	public Node(int x, int y, int height){
+		this.x =x;
+		this.y =y;
+		this.height = height;
+	}
+	
+
+}

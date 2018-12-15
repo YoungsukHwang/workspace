@@ -1,0 +1,139 @@
+import java.util.ArrayList;
+
+public class myAVL {
+	public Node root;
+	
+	public myAVL(){
+		
+	}
+	public myAVL(Node root){
+		this.root = root;
+	}
+
+	// AVL Tree is a type of balanced binary search tree
+	
+	private void inorder(ArrayList<Node> list) {
+		myAVL left = new myAVL();
+		myAVL right = new myAVL();
+		left.root = this.root.left;
+		right.root = this.root.right;
+
+		if (left.root != null)
+			left.inorder(list);
+		list.add(root);
+		if (right.root != null)
+			right.inorder(list);
+	}
+	
+	public int countBF(){
+		myAVL leftTree = new myAVL();
+		myAVL rightTree = new myAVL();
+		
+		int h1 = leftTree.height(root);
+		int h2 = rightTree.height(root);
+		
+		return h1-h2; 
+	}
+
+	private int height(Node node) {
+		if(node==null)
+			return 0;
+		int lHeight = height(node.left);
+		int rHeight = height(node.right);
+		
+		if(lHeight>rHeight)
+			return lHeight+1;
+		else
+			return rHeight+1;
+	}
+	
+	public Node get(int searchKey){
+		if(root==null)
+			return null;
+		if(root.key==searchKey)
+			return root;
+		
+		myAVL leftTree = new myAVL(root.left);
+		myAVL rightTree = new myAVL(root.right);
+		
+		if(searchKey<root.key)
+			return leftTree.get(searchKey);
+		else if(searchKey>root.key)
+			return rightTree.get(searchKey);
+		else
+			return rightTree.get(searchKey);
+	}
+	
+	public void put(int key){
+		if(root==null)
+			return new Node(key);
+		
+		if(key < root.getKey()){
+			myAVL leftTree = new myAVL(root.left);
+			root.left = leftTree.put(key);
+		}
+		else{
+			myAVL rightTree = new myAVL(root.right);
+			root.right = rightTree.put(key);
+		}
+		
+		
+			
+			
+
+	}
+
+	private Node splay(Node root, Node n) {
+		if(root==null) return null;
+		
+		if( root.getKey() > n.getKey() ){ // n < rt
+			if(root.left ==null) return root;
+			
+			if(root.left.getKey() > n.getKey()){
+				root.left.left = splay(root.left.left, n);
+				root = rotateRight(root);
+			}
+			else if(root.left.getKey() < n.getKey()){
+				root.left.right = splay(root.left.right, n);
+				if(root.left.right!=null)
+					root.left = rotateLeft(root.left);
+			}
+			if(root.left==null) return root;
+			else				return rotateRight(root);
+		}
+		
+		else if (root.getKey() < n.getKey() ){ // rt < n
+			if(root.right==null) return root;
+			
+			if( root.right.getKey() > n.getKey() ){
+				root.right.left = splay(root.right.left, n);
+				if( root.right.left != null)
+					root.right = rotateRight(root.right);
+			}
+			else if( root.right.getKey() < n.getKey() ){
+				root.right.right = splay(root.right.right, n);
+				root = rotateLeft(root);
+			}
+			if(root.right == null) return root;
+			else					return rotateLeft(root);
+		}
+		else return root;
+	}
+	
+	private Node rotateRight(Node h) { // LL
+		Node x = h.left;
+		h.left = x.right;
+		x.right = h;
+		return x;
+	}
+
+	private Node rotateLeft(Node h) { // RR
+		Node x = h.right;
+		h.right = x.left;
+		x.left = h;
+		return x;
+	}
+
+
+
+}

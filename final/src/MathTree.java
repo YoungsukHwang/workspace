@@ -1,0 +1,103 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class MathTree {
+	public static void main(String[] args) throws IOException {
+		// Read inpostfix.txt
+		File file = new File("src/inpostfix.txt"); // for eclipse
+		// File file = new File("inpostfix.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+
+		String[] line = new String[3];
+		String[] result = new String[3];
+
+		for (int i = 0; i < 3; i++) {
+			line[i] = sc.nextLine();
+			System.out.println(line[i]);
+		}
+
+		Scanner scan = new Scanner(line[0]);
+		String rest = new String();
+		String fix = scan.next();
+		while (scan.hasNext())
+			rest += scan.next();
+		System.out.println(rest);
+
+		//Build Tree
+		if (fix.equals("p")) {
+			result[0] = toInfix(rest);
+		} else if (fix.equals("i")) {
+			result[0] = toPostfix(rest);
+		}
+		
+		// printout outfix.txt
+		FileWriter fileWriter = new FileWriter("outfix.txt");
+		fileWriter.write(" ");// result[0]
+		fileWriter.close();
+
+	}
+
+	public static String toInfix(String postfix) {
+		String result= new String();
+		Node root = buildPostEval(postfix);
+		result = inorder(root);
+		
+		return result;
+	}
+
+	private static String inorder(Node root) {
+		if(root==null)
+			return "";
+		String str= new String();
+		str+=inorder(root.left);
+		str+=root.data;
+		str+=inorder(root.right);
+
+		return str;
+	}
+
+	private static Node buildPostEval(String postfix) {
+		Scanner s = new Scanner(postfix);
+		myStack stack = new myStack(); 
+		
+		while(s.hasNext()){
+			String next = s.next();
+			if (next.matches("[A-Z]")) {
+				stack.push( new Node(next) );
+			} else { 
+				Node op1 = (Node) stack.pop();
+				Node op2 = (Node) stack.pop();
+				Node operator = new Node(next);
+				operator.left = op1;
+				operator.right = op2;
+				stack.push(operator);
+			}	
+		}
+		Node root = (Node) stack.pop();
+		return root;
+	}
+	
+
+	public static String toPostfix(String infix) {
+		//build expression tree from infix
+		String result= new String();
+		Node root = buildinfixEval(infix);
+		result = postorder(root);
+		//report it to Postfix
+		
+		
+		return result;
+	}
+
+	private static String postorder(Node root) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private static Node buildinfixEval(String infix) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

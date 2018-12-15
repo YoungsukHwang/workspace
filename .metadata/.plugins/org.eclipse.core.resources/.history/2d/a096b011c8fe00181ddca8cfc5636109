@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class Graph {
+	public ArrayList<Node> nodes;
+	public ArrayList<Edge> edges;
+	
+	public Graph(){
+		
+	}
+	
+	public Graph(ArrayList<Node> nodes2, ArrayList<Edge> edges2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void addNode(Node n){
+		nodes.add(n);
+	}
+	public void addEdge(Edge e){
+		edges.add(e);
+	}
+	
+
+}

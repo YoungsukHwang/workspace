@@ -1,0 +1,16 @@
+
+public class Node {
+	public int key;
+	public Node left;
+	public Node right;
+	
+	public int getKey() {
+		// TODO Auto-generated method stub
+		return key;
+	}
+	
+	public int countBF(){
+		
+	}
+	
+}

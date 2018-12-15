@@ -1,0 +1,12 @@
+import java.io.File;
+import java.util.Scanner;
+
+public class GraphAdjacency {
+	public static void main(String[] args) {
+		File file = new File("src/inpostfix.txt"); // for eclipse
+		// File file = new File("inpostfix.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+
+	}
+
+}

@@ -1,0 +1,22 @@
+
+public class Edge {
+	public Node dest;
+	public double weight;
+	
+	public Node chosenFrom;
+	
+	public Edge(Node destination, double d) {
+		this.dest = destination;
+		this.weight = d;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setChosenFrom(Node from) {
+		this.chosenFrom = from;
+	}
+	
+
+}

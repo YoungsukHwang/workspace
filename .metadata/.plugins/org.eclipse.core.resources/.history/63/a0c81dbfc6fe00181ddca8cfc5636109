@@ -1,0 +1,27 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class GraphAdjacency {
+	public static void main(String[] args) throws FileNotFoundException {
+		File file = new File("src/dir.txt"); // for eclipse
+		// File file = new File("dir.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+		
+		String first = sc.nextLine();
+		String numV = first.substring(0, 1);
+		String numE = first.substring(2, 3);
+		String directed = first.substring(4,5);
+		
+		for(sc.hasNext()){
+			String l = sc.nextLine();
+		}
+		
+		
+
+	}
+	
+	//toAdjacencyMatrixt()
+	//toAdjacencyList()
+
+}

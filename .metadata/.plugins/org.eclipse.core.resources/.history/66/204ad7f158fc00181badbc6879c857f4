@@ -1,0 +1,10 @@
+
+public class Prime {
+	Node[][] mat;
+	
+	public Prime(Node[][] nodeMat){
+		this.mat = nodeMat;
+	}
+	
+
+}

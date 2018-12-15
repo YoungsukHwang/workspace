@@ -1,0 +1,35 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class LZW {
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		Scanner s = new Scanner(System.in);				
+		
+		String text = args[0];
+		File file = new File(text);
+		
+		// File file = new File("src/inpostfix.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+		
+		while(sc.hasNext()){
+			System.out.print(sc.next());
+		}
+
+		decodeLZE();
+		
+	}
+
+	private static void decodeLZE() {
+		// TODO Auto-generated method stub
+		
+		HashMap<Integer, String> table = new HashMap<>();
+		//use Hash table to do
+		//use p, pCode, and hash table while reading left to right. 
+		
+	}
+
+}

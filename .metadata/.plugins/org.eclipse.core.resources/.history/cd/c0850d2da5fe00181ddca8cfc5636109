@@ -1,0 +1,22 @@
+
+public class Node {
+	public int key;
+	public Node left;
+	public Node right;
+	
+	public int getKey() {
+		// TODO Auto-generated method stub
+		return key;
+	}
+	
+	public int countBF(){
+		Node leftTree = this.left;
+		Node rightTree = this.right;
+		
+		int h1 = leftTree.height();
+		int h2 = rightTree.height();
+		
+		return h1-h2; 
+	}
+	
+}

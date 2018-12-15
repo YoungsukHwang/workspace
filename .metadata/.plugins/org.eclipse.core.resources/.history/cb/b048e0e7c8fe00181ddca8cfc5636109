@@ -1,0 +1,24 @@
+import java.io.File;
+import java.util.Scanner;
+
+public class LZW {
+	
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);				
+		
+		String text = args[0];
+		File file = new File(text); 
+		// File file = new File("src/inpostfix.txt"); //for run on terminal.
+		Scanner sc = new Scanner(file);
+
+		decodeLZE();
+		
+	}
+
+	private static void decodeLZE() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

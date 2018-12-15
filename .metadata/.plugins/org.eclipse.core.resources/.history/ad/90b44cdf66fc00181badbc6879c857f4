@@ -1,0 +1,20 @@
+
+public class Prime {
+	Node[][] mat;
+	
+	public Prime(Node[][] nodeMat){
+		this.mat = nodeMat;
+	}
+	
+	public void MST(){
+		Node start = mat[19+2][19+2];
+		MinHeapPrime heap = new MinHeapPrime(4000);
+		
+		Node[] chosenNodes= new Node[360];
+		Edge[] chosenEdges= new Edge[359];
+		
+		chosenNodes[0] = start;
+		
+	}
+
+}

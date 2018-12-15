@@ -1,0 +1,94 @@
+import java.util.ArrayList;
+
+public class myAVL {
+	public Node root;
+	
+	public myAVL(){
+		root =null;
+	}
+	public myAVL(Node root){
+		this.root = root;
+	}
+	
+	public void insert(int data){
+		root = insert(data, root);
+	}
+	
+	private Node insert(int data, Node t) {
+		if(t==null)
+			t= new Node(data);
+		
+		else if(data < t.data){
+			t.left = insert(data, t.left);
+			if( height(t.left) - height(t.right)==2){
+				if(data < t.left.data)
+					t = rotateLL(t);
+				else
+					t= rotateLR(t);
+			}		
+		}else if(data > t.data){
+			t.right = insert(data, t.right);
+			if (height(t.left)- height(t.right)==-2){
+				if(data<t.right.data)
+					t = rotateRL(t);
+				else
+					t = rotateRR(t);
+			}	
+			
+		}
+		else //Duplicate. do nothing
+			;
+		
+		t.height = max( height(t.left), height(t.right))
+		
+		return null;
+	}
+	public int height(Node n){
+		return n==null ? -1 :n.height;
+	}
+	private int max(int l, int r){
+		return l>r? l:r;
+	}
+
+	// AVL Tree is a type of balanced binary search tree
+	
+	public int countBF(){
+		myAVL leftTree = new myAVL();
+		myAVL rightTree = new myAVL();
+		
+		int h1 = leftTree.height(root);
+		int h2 = rightTree.height(root);
+		
+		return h1-h2; 
+	}
+
+	
+	private Node rotateRight(Node h) { // LL
+		Node x = h.left;
+		h.left = x.right;
+		x.right = h;
+		return x;
+	}
+
+	private Node rotateLeft(Node h) { // RR
+		Node x = h.right;
+		h.right = x.left;
+		x.left = h;
+		return x;
+	}
+	private void inorder(ArrayList<Node> list) {
+		myAVL left = new myAVL();
+		myAVL right = new myAVL();
+		left.root = this.root.left;
+		right.root = this.root.right;
+
+		if (left.root != null)
+			left.inorder(list);
+		list.add(root);
+		if (right.root != null)
+			right.inorder(list);
+	}
+
+
+
+}

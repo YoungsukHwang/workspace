@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+
+public class Graph {
+	public ArrayList<Node> nodes;
+	public ArrayList<Edge> edges;
+	
+	public Graph(){
+		
+	}
+	
+	public void addNode(Node n){
+		nodes.
+		
+	}
+	public void addEdge(Edge e){
+		
+	}
+	
+
+}
